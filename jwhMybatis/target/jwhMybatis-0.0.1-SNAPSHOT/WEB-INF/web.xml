@@ -5,7 +5,7 @@
        http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
   id="WebApp_ID" version="3.1">
   
-  <display-name></display-name>
+  <display-name>jwhMybatis</display-name>
   
   <welcome-file-list>		<!-- 여기는 index.jsp만 사용 -->
     <welcome-file>index.jsp</welcome-file>
@@ -14,9 +14,12 @@
   <listener>		<!-- 스프링 설정파일을 명시하고 그것을 읽어 들이기 위한 리스너 설정 -->
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  
   <context-param><!-- ContextLoaderListener를 동작하는데 필요한 설정파일의 위치 지정 -->
     <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/config/application-context.xml</param-value>
+    <param-value>
+    	classpath:/config/db-context.xml
+    </param-value>
   </context-param>
   
   <servlet> <!-- 서블릿 명과 클래스를 연결 -->
