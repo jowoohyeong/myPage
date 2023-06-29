@@ -3,6 +3,8 @@ package com.spring.mybatis.login.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import com.spring.mybatis.login.service.LoginService;
 
 @Controller
 public class LoginController {
+	private Logger logger = LoggerFactory.getLogger(getClass());
+
 	@Autowired
 	BoardService bdservice;
 	@Autowired
@@ -23,6 +27,7 @@ public class LoginController {
 	
 	@RequestMapping("/")
 	public String login() {
+		logger.error(" >>> /");
 		return "redirect:/login";
 	}
 	@RequestMapping("/login")
