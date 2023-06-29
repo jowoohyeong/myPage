@@ -2,6 +2,8 @@ package com.spring.mybatis;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,7 @@ import com.spring.mybatis.main.dto.PagingDTO;
 
 @Controller
 public class BoardController {
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	@Autowired
 	BoardService bdservice;
 
@@ -41,7 +44,8 @@ public class BoardController {
 
 	@RequestMapping("/main")
 	public String main(BoardSearchDTO searchDTO, PagingDTO pagingDTO, Model model) {
-		System.out.println("\n----------------");
+System.out.println("\n----------------");
+		logger.info("BoardController >> main >> start!");
 		BoardListDTO listDTO = new BoardListDTO();
 
 		listDTO = bdservice.service(searchDTO, pagingDTO);
